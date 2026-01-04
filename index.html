@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Energías limpias en Colombia, soluciones sostenibles y ecoamigables para tu hogar y empresa. Apuesta por el futuro con energía renovable.">
+    <meta name="keywords" content="energías limpias, energías renovables, Colombia, energía solar, energía eólica, sostenibilidad">
+    <title>Energías Limpias en Colombia</title>
+    <style>
+        /* Estilos generales */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            color: #333;
+            background-color: #f4f4f4;
+            overflow-x: hidden;
+        }
+
+        /* Contenedor principal */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Sección principal */
+        .hero {
+            background: url('https://via.placeholder.com/1920x1080.png?text=Energ%C3%ADas+Limpias+en+Colombia') no-repeat center center;
+            background-size: cover;
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            margin-bottom: 40px;
+        }
+
+        /* Botón de pago */
+        .cta-btn {
+            background-color: #1e8e3e;
+            color: white;
+            font-size: 1.5em;
+            padding: 20px 40px;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            background-color: #145a29;
+        }
+
+        /* Sección de contenido */
+        .content {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 40px 0;
+        }
+
+        .content div {
+            flex: 1;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .content div:hover {
+            transform: translateY(-10px);
+        }
+
+        .content h3 {
+            font-size: 1.8em;
+            color: #1e8e3e;
+        }
+
+        .content p {
+            font-size: 1em;
+            color: #666;
+        }
+
+        /* Estilos de la sección de contacto */
+        .contact {
+            background-color: #1e8e3e;
+            color: white;
+            padding: 40px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .contact h2 {
+            font-size: 2.2em;
+            margin-bottom: 20px;
+        }
+
+        .contact p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        /* Estilos responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2em;
+            }
+
+            .hero p {
+                font-size: 1em;
+            }
+
+            .cta-btn {
+                font-size: 1.2em;
+                padding: 15px 30px;
+            }
+
+            .content {
+                flex-direction: column;
+            }
+
+            .content div {
+                margin-bottom: 20px;
+            }
+
+            .contact h2 {
+                font-size: 1.8em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 60px 10px;
+            }
+
+            .hero h1 {
+                font-size: 1.5em;
+            }
+
+            .hero p {
+                font-size: 0.9em;
+            }
+
+            .cta-btn {
+                font-size: 1.1em;
+                padding: 12px 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Sección de bienvenida con fondo -->
+        <section class="hero">
+            <h1>Bienvenido a Energías Limpias en Colombia</h1>
+            <p>Transforma tu hogar o empresa con energías renovables. Contribuye al cuidado del medio ambiente y reduce tus costos energéticos.</p>
+            <button class="cta-btn" id="cta-btn">Pagar aquí</button>
+        </section>
+
+        <!-- Sección de contenido -->
+        <section class="content">
+            <div>
+                <h3>¿Por qué elegir energías limpias?</h3>
+                <p>Las energías renovables, como la solar y eólica, son la mejor opción para reducir la huella de carbono y proteger el planeta. En Colombia, las condiciones geográficas son ideales para aprovechar estas fuentes de energía natural.</p>
+            </div>
+            <div>
+                <h3>Beneficios de la energía solar</h3>
+                <p>La energía solar no solo es limpia, sino también una opción económica a largo plazo. Gracias a las políticas de incentivos y un clima favorable, los sistemas solares son una excelente inversión en Colombia.</p>
+            </div>
+            <div>
+                <h3>Soluciones personalizadas</h3>
+                <p>Ofrecemos soluciones a medida, adaptadas a tus necesidades, ya sea para tu hogar o tu empresa. Nuestros expertos están disponibles para brindarte asesoría en cada paso del proceso.</p>
+            </div>
+        </section>
+
+        <!-- Sección de contacto -->
+        <section class="contact">
+            <h2>Contacta con nosotros</h2>
+            <p>Si estás listo para dar el siguiente paso y transformar tu forma de consumir energía, contacta con nosotros hoy mismo. Nuestro equipo está aquí para ayudarte.</p>
+            <button class="cta-btn" id="cta-btn-contact">Pagar aquí</button>
+        </section>
+    </div>
+
+    <script>
+        // Función para verificar si el usuario llegó desde un anuncio
+        function checkAdSource() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.has('utm_source') && urlParams.get('utm_source') === 'ad';
+        }
+
+        // Redirigir al index.html solo si llega desde el anuncio
+        document.getElementById('cta-btn').addEventListener('click', function() {
+            if (checkAdSource()) {
+                window.location.href = 'index.html';
+            } else {
+                alert('Acción no permitida. No accediste desde el anuncio.');
+            }
+        });
+
+        // También aplicamos la misma lógica en el botón de la sección de contacto
+        document.getElementById('cta-btn-contact').addEventListener('click', function() {
+            if (checkAdSource()) {
+                window.location.href = 'index.html';
+            } else {
+                alert('Acción no permitida. No accediste desde el anuncio.');
+            }
+        });
+    </script>
+
+</body>
+</html>
