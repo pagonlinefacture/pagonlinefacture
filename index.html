@@ -3,224 +3,600 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Energías limpias en Colombia, soluciones sostenibles y ecoamigables para tu hogar y empresa. Apuesta por el futuro con energía renovable.">
-    <meta name="keywords" content="energías limpias, energías renovables, Colombia, energía solar, energía eólica, sostenibilidad">
-    <title>Energías Limpias en Colombia</title>
+    <meta name="description" content="Grupo Afina Caribe - El mejor conjunto vallenato para sus eventos en Colombia. Bodas, parrandas y eventos corporativos con calidad profesional.">
+    <title>Grupo Afina Caribe | Vallenato Profesional en Colombia</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
-        /* Estilos generales */
-        body, html {
+        /* --- VARIABLES CSS & RESET --- */
+        :root {
+            --primary: #0f172a; /* Azul noche elegante */
+            --accent: #fbbf24; /* Dorado vallenato */
+            --accent-hover: #d97706;
+            --light: #f8fafc;
+            --text-dark: #334155;
+            --text-light: #94a3b8;
+            --gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
-            color: #333;
-            background-color: #f4f4f4;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--light);
             overflow-x: hidden;
         }
 
-        /* Contenedor principal */
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
         }
 
-        /* Sección principal */
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* --- BOTONES --- */
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: var(--primary);
+            box-shadow: 0 4px 14px 0 rgba(251, 191, 36, 0.39);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--light);
+            color: var(--light);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: var(--light);
+            color: var(--primary);
+        }
+
+        /* --- NAVBAR --- */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 5%;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .logo {
+            color: var(--light);
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--light);
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Menú Móvil Hamburger */
+        .hamburger {
+            display: none;
+            color: var(--light);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* --- HERO SECTION --- */
         .hero {
-            background: url('https://via.placeholder.com/1920x1080.png?text=Energ%C3%ADas+Limpias+en+Colombia') no-repeat center center;
+            height: 100vh;
+            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.7)), url('https://images.unsplash.com/photo-1516280440614-6697288d5d38?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80'); /* Imagen placeholder de alta calidad */
             background-size: cover;
-            color: white;
-            padding: 80px 20px;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
+            padding: 0 1rem;
             position: relative;
         }
 
+        .hero-content {
+            max-width: 800px;
+            color: var(--light);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s forwards 0.5s;
+        }
+
         .hero h1 {
-            font-size: 2.5em;
-            margin-bottom: 20px;
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
         }
 
         .hero p {
-            font-size: 1.2em;
-            margin-bottom: 40px;
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            color: #cbd5e1;
         }
 
-        /* Botón de pago */
-        .cta-btn {
-            background-color: #1e8e3e;
-            color: white;
-            font-size: 1.5em;
-            padding: 20px 40px;
-            border: none;
-            cursor: pointer;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-
-        .cta-btn:hover {
-            background-color: #145a29;
-        }
-
-        /* Sección de contenido */
-        .content {
+        .hero-buttons {
             display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            gap: 20px;
-            padding: 40px 0;
+            gap: 1rem;
+            justify-content: center;
         }
 
-        .content div {
-            flex: 1;
-            background-color: white;
-            padding: 20px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            transition: transform 0.3s ease;
+        /* --- FEATURES / SERVICES --- */
+        .section {
+            padding: 5rem 5%;
         }
 
-        .content div:hover {
-            transform: translateY(-10px);
-        }
-
-        .content h3 {
-            font-size: 1.8em;
-            color: #1e8e3e;
-        }
-
-        .content p {
-            font-size: 1em;
-            color: #666;
-        }
-
-        /* Estilos de la sección de contacto */
-        .contact {
-            background-color: #1e8e3e;
-            color: white;
-            padding: 40px;
+        .section-header {
             text-align: center;
-            margin-top: 60px;
+            margin-bottom: 4rem;
         }
 
-        .contact h2 {
-            font-size: 2.2em;
-            margin-bottom: 20px;
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
         }
 
-        .contact p {
-            font-size: 1.2em;
-            margin-bottom: 20px;
+        .section-header .line {
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            margin: 0 auto;
         }
 
-        /* Estilos responsive */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+            text-align: center;
+            border-top: 4px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-top: 4px solid var(--accent);
+        }
+
+        .icon-box {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        /* --- MEDIA / REPERTOIRE --- */
+        .bg-dark {
+            background-color: var(--primary);
+            color: var(--light);
+        }
+
+        .bg-dark h2 {
+            color: var(--light);
+        }
+
+        .media-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 */
+            height: 0;
+            background: #000;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* --- CONTACTO / FORMULARIO --- */
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4rem;
+            justify-content: center;
+        }
+
+        .contact-info, .contact-form {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .info-item i {
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-family: inherit;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            border-color: var(--accent);
+        }
+
+        /* --- FOOTER (Obligatorio Ads) --- */
+        footer {
+            background: #020617;
+            color: #94a3b8;
+            padding: 3rem 5% 1rem;
+            font-size: 0.9rem;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            margin-left: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        /* --- WHATSAPP FLOATING --- */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 2000;
+            transition: transform 0.3s;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        /* --- ANIMACIONES --- */
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            will-change: opacity, visibility;
+        }
+
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        /* --- MEDIA QUERIES --- */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2em;
-            }
-
-            .hero p {
-                font-size: 1em;
-            }
-
-            .cta-btn {
-                font-size: 1.2em;
-                padding: 15px 30px;
-            }
-
-            .content {
+            .hero h1 { font-size: 2.5rem; }
+            .nav-links {
+                position: absolute;
+                right: 0;
+                top: 70px;
+                background: var(--primary);
                 flex-direction: column;
+                width: 100%;
+                text-align: center;
+                padding: 2rem 0;
+                transform: translateY(-150%);
+                transition: transform 0.3s ease-in-out;
             }
-
-            .content div {
-                margin-bottom: 20px;
-            }
-
-            .contact h2 {
-                font-size: 1.8em;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero {
-                padding: 60px 10px;
-            }
-
-            .hero h1 {
-                font-size: 1.5em;
-            }
-
-            .hero p {
-                font-size: 0.9em;
-            }
-
-            .cta-btn {
-                font-size: 1.1em;
-                padding: 12px 25px;
-            }
+            .nav-links.active { transform: translateY(0); }
+            .hamburger { display: block; }
+            .hero-buttons { flex-direction: column; }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <!-- Sección de bienvenida con fondo -->
-        <section class="hero">
-            <h1>Bienvenido a Energías Limpias en Colombia</h1>
-            <p>Transforma tu hogar o empresa con energías renovables. Contribuye al cuidado del medio ambiente y reduce tus costos energéticos.</p>
-            <button class="cta-btn" id="cta-btn">Pagar aquí</button>
-        </section>
+    <nav class="navbar">
+        <a href="#" class="logo">AFINA<span>CARIBE</span></a>
+        <div class="hamburger" id="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#experiencia">Experiencia</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
 
-        <!-- Sección de contenido -->
-        <section class="content">
-            <div>
-                <h3>¿Por qué elegir energías limpias?</h3>
-                <p>Las energías renovables, como la solar y eólica, son la mejor opción para reducir la huella de carbono y proteger el planeta. En Colombia, las condiciones geográficas son ideales para aprovechar estas fuentes de energía natural.</p>
+    <header id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>El Auténtico Sonido del Vallenato</h1>
+            <p>Llevamos la alegría y el sentimiento de la música vallenata a cualquier rincón de Colombia. Profesionalismo, puntualidad y excelencia musical.</p>
+            <div class="hero-buttons">
+                <a href="#contacto" class="btn btn-primary">Cotizar Evento</a>
+                <a href="#experiencia" class="btn btn-outline">Ver Videos</a>
             </div>
-            <div>
-                <h3>Beneficios de la energía solar</h3>
-                <p>La energía solar no solo es limpia, sino también una opción económica a largo plazo. Gracias a las políticas de incentivos y un clima favorable, los sistemas solares son una excelente inversión en Colombia.</p>
-            </div>
-            <div>
-                <h3>Soluciones personalizadas</h3>
-                <p>Ofrecemos soluciones a medida, adaptadas a tus necesidades, ya sea para tu hogar o tu empresa. Nuestros expertos están disponibles para brindarte asesoría en cada paso del proceso.</p>
-            </div>
-        </section>
+        </div>
+    </header>
 
-        <!-- Sección de contacto -->
-        <section class="contact">
-            <h2>Contacta con nosotros</h2>
-            <p>Si estás listo para dar el siguiente paso y transformar tu forma de consumir energía, contacta con nosotros hoy mismo. Nuestro equipo está aquí para ayudarte.</p>
-            <button class="cta-btn" id="cta-btn-contact">Pagar aquí</button>
-        </section>
-    </div>
+    <section id="servicios" class="section fade-in-section">
+        <div class="section-header">
+            <h2>Nuestros Servicios</h2>
+            <div class="line"></div>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="icon-box"><i class="fas fa-glass-cheers"></i></div>
+                <h3>Bodas y Celebraciones</h3>
+                <p>Hacemos de su fecha especial un momento inolvidable con un repertorio romántico y parrandero seleccionado a su gusto.</p>
+            </div>
+            <div class="service-card">
+                <div class="icon-box"><i class="fas fa-briefcase"></i></div>
+                <h3>Eventos Corporativos</h3>
+                <p>Presentación impecable, puntualidad y facturación legal para empresas. Elevamos el nivel de su evento empresarial.</p>
+            </div>
+            <div class="service-card">
+                <div class="icon-box"><i class="fas fa-music"></i></div>
+                <h3>Parrandas Vallenatas</h3>
+                <p>El formato tradicional con caja, guacharaca y acordeón para reuniones privadas y fiestas familiares.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="experiencia" class="section bg-dark fade-in-section">
+        <div class="section-header">
+            <h2>Experiencia Musical</h2>
+            <div class="line" style="background-color: var(--accent);"></div>
+        </div>
+        <div class="media-grid">
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/PLACEHOLDER1" title="Video Presentación" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/PLACEHOLDER2" title="Video Parranda" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 3rem;">
+            <p style="color: var(--text-light); margin-bottom: 1rem;">Más de 10 años de trayectoria en escenarios nacionales.</p>
+        </div>
+    </section>
+
+    <section id="contacto" class="section fade-in-section">
+        <div class="section-header">
+            <h2>Contáctenos</h2>
+            <p>Solicite su cotización sin compromiso</p>
+            <div class="line"></div>
+        </div>
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="info-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <div>
+                        <h4>Teléfono / WhatsApp</h4>
+                        <p>+57 300 123 4567</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h4>Correo Electrónico</h4>
+                        <p>contacto@grupoafinacaribe.com</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h4>Ubicación</h4>
+                        <p>Bogotá D.C., Cobertura Nacional</p>
+                    </div>
+                </div>
+            </div>
+
+            <form class="contact-form" onsubmit="event.preventDefault(); alert('Gracias. Nos pondremos en contacto pronto.');">
+                <div class="form-group">
+                    <input type="text" placeholder="Su Nombre" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" placeholder="Teléfono de Contacto" required>
+                </div>
+                <div class="form-group">
+                    <select required>
+                        <option value="">Tipo de Evento</option>
+                        <option value="boda">Boda</option>
+                        <option value="cumpleanos">Cumpleaños</option>
+                        <option value="corporativo">Evento Corporativo</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <textarea rows="4" placeholder="Detalles del evento (Fecha, Ciudad, Hora)"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Enviar Solicitud</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h3>AFINA<span style="color:var(--accent)">CARIBE</span></h3>
+                <p style="margin-top: 0.5rem;">Calidad musical garantizada.</p>
+            </div>
+            <div class="footer-links">
+                <a href="#">Política de Privacidad</a>
+                <a href="#">Términos y Condiciones</a>
+            </div>
+        </div>
+        <div style="text-align: center; opacity: 0.6; font-size: 0.8rem;">
+            &copy; 2024 Grupo Afina Caribe. Todos los derechos reservados.
+        </div>
+    </footer>
+
+    <a href="https://wa.me/573000000000" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <script>
-        // Función para verificar si el usuario llegó desde un anuncio
-        function checkAdSource() {
-            const urlParams = new URLSearchParams(window.location.search);
-            return urlParams.has('utm_source') && urlParams.get('utm_source') === 'ad';
-        }
+        // --- JAVASCRIPT ---
+        
+        // 1. Menú Móvil
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('nav-links');
 
-        // Redirigir al index.html solo si llega desde el anuncio
-        document.getElementById('cta-btn').addEventListener('click', function() {
-            if (checkAdSource()) {
-                window.location.href = 'index.html';
-            } else {
-                alert('Acción no permitida. No accediste desde el anuncio.');
-            }
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
         });
 
-        // También aplicamos la misma lógica en el botón de la sección de contacto
-        document.getElementById('cta-btn-contact').addEventListener('click', function() {
-            if (checkAdSource()) {
-                window.location.href = 'index.html';
+        // Cerrar menú al hacer click en un enlace
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // 2. Animación al hacer Scroll (Intersection Observer)
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // 3. Navbar con efecto vidrio al hacer scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(15, 23, 42, 0.98)';
+                navbar.style.boxShadow = '0 2px 10px rgba(0,0,0,0.3)';
             } else {
-                alert('Acción no permitida. No accediste desde el anuncio.');
+                navbar.style.background = 'rgba(15, 23, 42, 0.9)';
+                navbar.style.boxShadow = 'none';
             }
         });
     </script>
-
 </body>
 </html>
